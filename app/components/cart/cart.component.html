@@ -1,0 +1,49 @@
+<h3>Your order</h3>
+
+<div class="ui middle aligned divided list">
+  <div class="item" *ngFor="let dish of cart.dishes; let i = index">
+    <div class="content">
+      <h4>{{dish.name}} - <span>{{dish.price | currency:'USD':true}}</span></h4>
+      <p>{{dish.desc}}</p>
+    </div>
+    <div class="right floated content">
+      <button class="unvisible" (click)="delete(i)"><i class="trash icon red"></i></button>
+    </div>
+  </div>
+  <h4>Total: {{cart.total | currency:'USD':true}}</h4>
+</div>
+
+<h4 class="ui horizontal divider header">
+  Select your table number
+</h4>
+<form class="ui form">
+  <div class="field">
+    <select class="ui fluid dropdown">
+      <option value="">Select table</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+</form>
+
+<h4 class="ui horizontal divider header">
+  Pick payment method
+</h4>
+<div class="ui grid payment">
+  <div class="three column row">
+    <div class="column center">
+      <div><i class="paypal icon"></i></div>
+      <button class="ui button red">Pay with PayPal</button>
+    </div>
+    <div class="column">
+      <div><i class="google wallet icon"></i></div>
+      <button class="ui button red">Pay with Google Wallet</button>
+    </div>
+    <div class="column">
+      <div><i class="user icon"></i></div>
+      <button class="ui button red">Pay directly for waiter</button>
+    </div>
+  </div>
+</div>
